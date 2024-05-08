@@ -1,43 +1,42 @@
-import React, { Component } from 'react'
+import React from 'react';
 import { useLocation } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 
-function Sidebar() {
-    const location = useLocation();
-    const activeClass = 'rounded-md bg-gray-600 text-white p-2';
+const Sidebar = () => {
+  const location = useLocation();
+  const activeClass = 'rounded-md bg-green-700 text-white p-2';
 
-    const NavLinkFunction = () => {
-        const sideBarArray = new Map([
-          ['Dashboard', '/dashboard'],
-          ['Admin', '/admin'],
-          ['Students', '/students'],
-        ]);
-        
-  
-        return (
-                <ul>
-                {[...sideBarArray].map(([key, value]) => (
-                  <li key={value} className="mb-2">
-                    <NavLink
-                      exact= "true"
-                      to={value}
-                      className={`text-blue-500 ${location.pathname === value ? activeClass : ''}`}
-                    >
-                      {key}
-                    </NavLink>
-                  </li>
-                ))}
-              </ul>
-          
-        );
-     }
-     
+  const NavLinkFunction = () => {
+    const sideBarArray = new Map([
+      ['Dashboard', '/dashboard'],
+      ['Admin', '/admin'],
+      ['Students', '/students'],
+    ]);
+
     return (
-      <aside className="bg-gray-200 w-64 px-4 py-8">
-        <h2 className="text-lg font-semibold mb-4">Sidebar</h2>
-        {NavLinkFunction()}
-      </aside>
+      <ul>
+        {[...sideBarArray].map(([key, value]) => (
+          <li key={value} className="mb-2">
+            <NavLink
+              exact={true}
+              to={value}
+              className={`text-green-500 ${location.pathname === value ? activeClass : ''}`}
+            >
+              {key}
+            </NavLink>
+          </li>
+        ))}
+      </ul>
     );
   }
-  
-export default Sidebar
+
+  return (
+    <aside className="bg-green-200 w-64 px-4 py-8">
+      <h2 className="text-lg font-semibold mb-4 text-green-800">Sidebar</h2>
+      {NavLinkFunction()}
+    </aside>
+  );
+}
+
+export default Sidebar;
+

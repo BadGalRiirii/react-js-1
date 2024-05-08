@@ -1,9 +1,11 @@
-import React from 'react'
+import React from 'react';
 
 function Message(props) {
   return (
-    <div><h1>This is a function components</h1></div>
-  )
+    <div className="bg-green-100 p-4">
+      <h1 className="text-green-800 text-xl font-bold">This is a functional component</h1>
+    </div>
+  );
 }
 
-export default Message
+export default Message;
